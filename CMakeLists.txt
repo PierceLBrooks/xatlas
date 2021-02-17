@@ -3,16 +3,18 @@ cmake_minimum_required(VERSION 3.0)
 # Project is not versioned, so use date of last upstream commit.
 project(xatlas LANGUAGES CXX VERSION "0.0.0")
 
-set(XATLAS_SRC "xatlas.cpp")
+set(XATLAS_SRC "source/xatlas/xatlas.cpp")
 
-set(XATLAS_HEADERS "xatlas.h")
+set(XATLAS_HEADERS
+        "source/xatlas/xatlas.h"
+        "source/xatlas/xatlas_c.h")
 
 add_library(xatlas ${XATLAS_SRC} ${XATLAS_HEADERS})
 
 target_include_directories(
     xatlas
     PUBLIC
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>"
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/source/xatlas>"
 )
 
 target_compile_definitions(xatlas PUBLIC "XA_DEBUG=$<CONFIG:Debug>")
