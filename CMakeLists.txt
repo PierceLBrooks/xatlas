@@ -19,6 +19,8 @@ target_include_directories(
 
 target_compile_definitions(xatlas PUBLIC "XA_DEBUG=$<CONFIG:Debug>")
 
+target_compile_features(xatlas PRIVATE cxx_std_11)
+
 # Introduce variables:
 # * CMAKE_INSTALL_LIBDIR
 # * CMAKE_INSTALL_BINDIR
