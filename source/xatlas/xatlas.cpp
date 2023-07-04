@@ -79,8 +79,12 @@ Copyright (c) 2012 Brandon Pelfrey
 #define XA_ASSERT(exp) if (!(exp)) { XA_PRINT_WARNING("\rASSERT: %s %s %d\n", XA_XSTR(exp), __FILE__, __LINE__); }
 #endif
 
+#if XA_DEBUG
 #ifndef XA_DEBUG_ASSERT
 #define XA_DEBUG_ASSERT(exp) assert(exp)
+#endif
+#else
+#define XA_DEBUG_ASSERT(exp)
 #endif
 
 #ifndef XA_PRINT
